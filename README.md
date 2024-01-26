@@ -1,6 +1,6 @@
 # Welcome to the RubbishReplicator9000 Project!
 
-![RubbishReplicator9000 Logo](link_to_logo.png)
+![RubbishReplicator9000 Logo](rubbishreplicator9000_logo.png)
 
 Hey there, fellow tinkerers and dumpster divers! Welcome to the wild world of the RubbishReplicator9000 – the 3D printer born from the ashes of discarded dreams and forsaken appliances. If you've ever thought, "Why buy when you can scrounge?" then this project is for you.
 
