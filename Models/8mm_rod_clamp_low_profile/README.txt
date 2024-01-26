@@ -1,0 +1,1 @@
+Clamp for 8mm rod by gggkkk on Thingiverse: https://www.thingiverse.com/thing:119172
