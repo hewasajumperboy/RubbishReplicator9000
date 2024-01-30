@@ -1,0 +1,1 @@
+Z SHAFT CLAMP for 8mm Rods | 2020 | HYPERCUBE by PurchenZuPoden on Thingiverse: https://www.thingiverse.com/thing:2286273
