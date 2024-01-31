@@ -1,0 +1,1 @@
+Abraka vertical LM8uu & LM8Luu bearing holder by abraka_progroup on Thingiverse: https://www.thingiverse.com/thing:591108
