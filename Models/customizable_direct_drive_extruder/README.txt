@@ -1,0 +1,1 @@
+Customizable direct drive extruder for E3D v6 hotend for Prusa i3 / Wilson / Geeetech by gtcdma on Thingiverse: https://www.thingiverse.com/thing:1383913
