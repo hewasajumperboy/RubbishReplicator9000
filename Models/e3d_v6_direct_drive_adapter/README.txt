@@ -1,0 +1,1 @@
+E3D V6 Clone bowden to direct drive adapter insert - fine thread by vl777 on Thingiverse: https://www.thingiverse.com/thing:3408022
