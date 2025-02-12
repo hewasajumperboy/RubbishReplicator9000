@@ -4,19 +4,19 @@ mirrored = 1;               // 1 = "right",  0 = "left"
 
 prometheus = false;          // E3D v6 otherwise
 
-width = 49;
+width = 42.5;
 depth = 30;                     //filament to x carriage. Good for 40mm long motor
 height = 51;
 height_m = 20;     //motor to hotend top. You may need to increase this for prometheus!
 cover_d = 16;
 
 holes_top1 = 35;                //geetech, etc. (comment out to disable)
-holes_spacing1 = 40;     
+holes_spacing1 = 30;     
 
 holes_top2 = 23;                //rework X-carriage       
-holes_spacing2 = 0;
+holes_spacing2 = 23;
 holes_top3 = holes_top2 + 23;        
-holes_spacing3 = 0;
+holes_spacing3 = 23;
 
 filament_d = 1.75;
 gear_od = 9;                                    //outer diameter: mk8 = 9, mk7 = 12
@@ -37,10 +37,10 @@ bearing_od = 13; bearing_id = 4; bearing_h = 5;
 //MR104
 //bearing_od = 10; bearing_id = 4; bearing_h = 4;
 
-brass_tube = false;
+brass_tube = true;
 
-fillet = 2;
-supports = true;
+fillet = 1.5;
+supports = false;
 
 
 include <rounded.scad>
@@ -532,6 +532,5 @@ module motor_mount() {
         translate([-31/2, -31/2]) circle(r=1.6, $fn=32);
     }
 }
-
 
 
