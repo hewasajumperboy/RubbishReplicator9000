@@ -11,7 +11,7 @@
 // The width of your aluminium extrusion.
 extrusion_width = 20;
 // The side length of the bracket.
-side_length = 30;
+side_length = 20;
 // The thickness of the wall facing the extrusion.
 side_thickness = 4;
 // How many screw holes are are on the top side.
@@ -19,7 +19,7 @@ top_screw_count = 1;
 // How many screw holes are are on the bottom side.
 bottom_screw_count = 1;
 // Screw diameter (4 for M4, 5 for M5 and so on).
-screw_hole_size = 5;
+screw_hole_size = 4;
 // Screw head diameter.
 screw_head_size = 10;
 
@@ -39,14 +39,14 @@ extrusion_base = 20;
 // Set how many walls you want. One wall doesn't play well with multiple bracket mode.
 wall_count = 2; // [0 : 1 : 2]
 // Set lower if you think the side walls are too thick.
-max_wall_thickness = 10;
+max_wall_thickness = 3;
 // Set this if you want to use these above your existing brackets. Typical 2020 brackets have a size of 20 and side thickness of 3.
-cutout_size = 0;
-cutout_side_thickness = 3;
+cutout_size = 1;
+cutout_side_thickness = -0.5;
 // Decrease this if you don't want extrusion inserts on both sides. Intended for using these entirely or partially on non-extrusions.
 extrusion_insert_count = 2; // [0 : 1 : 2]
 // Set this to control how much space the nuts have. Hammer nuts should just work but for t nuts you will need to set a specific width.
-specific_bottom_nut_space = 0;
+specific_bottom_nut_space = 13;
 // Bracket angle for all your non-90 degree needs.
 bracket_angle = 90; // [45 : 1 : 180]
 
