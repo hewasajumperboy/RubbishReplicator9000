@@ -1,35 +1,39 @@
 
-lm8uu_length = 20;
+lm8uu_length = 15;
 lm8luu_length = 45;
-height = 27;
+lm12uu_length = 20;
+height = 35;
+lm8uu_diam = 15.5;
+lm12uu_diam = 21.5;
+extrusion_width = 20;
 
-retaining_hole_offset = 5;
-retaining_hole_diam = 3.5;
-retaining_hole_countersink_diam = 7;
+retaining_hole_offset = 4;
+retaining_hole_diam = 3.6;
+retaining_hole_countersink_diam = 6.5;
 retaining_hole_countersink_depth = 2;
 retaining_hole_nuttrap_depth = 4.1;
 
-block_width = 15;
-barrel_diam = 20;
-barrel_offset = 11;
-gap_width = 8;
-lm8uu_diam = 15.5;
+block_width = 10;
+barrel_thickness = 7;
+barrel_offset = 14;
+gap_width = 2;
 
-mount_width = 35;
+mount_width = extrusion_width * 2;
 mount_height = 3;
-mount_length = 5.5; // len/2 = center
-mount_hole_spacing = 26;
-mount_hole_diam = 4.2;
-mount_screwhead_clearance_diam = 6;
+mount_length = 5; // len/2 = center
+mount_hole_spacing = extrusion_width * 2 - 8;
+mount_hole_2_distance = 10;
+mount_hole_diam = 4.8;
+mount_screwhead_clearance_diam = 8;
 
-corner_round_diam = 10;
+corner_round_diam = 5;
 emboss_heart_height = 0.0;
 DEBUG = 0;
 
 if (true)
 {   
     rotate([90 * (1-DEBUG), 0, -90 * (1-DEBUG)])
-    lm8uu_holder();
+    lm12uu_holder();
 }
 
 module lm8uu_holder()
@@ -42,7 +46,12 @@ module lm8luu_holder()
     bearing_holder(length = lm8luu_length);
 }
 
-module bearing_holder2(length = lm8uu_length)
+module lm12uu_holder()
+{
+    bearing_holder(length = lm12uu_length, diameter = lm12uu_diam);
+}
+
+module bearing_holder2(length = lm8uu_length, diameter = lm8uu_diam)
 {
         union()
         {
@@ -53,11 +62,11 @@ module bearing_holder2(length = lm8uu_length)
             translate([0, 0, barrel_offset])
             translate([0, -0.05/2, 0])
             rotate([90, 0, 0])
-            cylinder(d=barrel_diam, h=length-0.05, center=true, $fn=28);
+            cylinder(d=diameter + barrel_thickness, h=length-0.05, center=true, $fn=28);
         }
 }
 
-module bearing_holder(length = lm8uu_length)
+module bearing_holder(length = lm8uu_length, diameter = lm8uu_diam)
 {
     // mount plate
     color("greenyellow") difference()
@@ -67,17 +76,17 @@ module bearing_holder(length = lm8uu_length)
         
         // mount holes
         for(i=[-1, 1])
-            translate([mount_hole_spacing/2*i, -length/2+mount_length-2, 0])
+            translate([mount_hole_spacing/2*i, -length/2+mount_length, 0])
             cylinder(d=mount_hole_diam, h=50, $fn=32, center=true);
         
-        // mount holes
+        // mount holes 2
         for(i=[-1, 1])
-            translate([mount_hole_spacing/2*i, -length/2+mount_length+11, 0])
+            translate([mount_hole_spacing/2*i, -length/2+mount_length + mount_hole_2_distance, 0])
             cylinder(d=mount_hole_diam, h=50, $fn=32, center=true);
         
         // remove the mount plate above the hole, we don't need it
         translate([0, 50, 0])
-        translate([0, mount_hole_diam/2+8.5, 0])
+        translate([0, mount_hole_diam/2+9.5, 0])
         cube([100, 100, 100], center=true);
         
         // cut the corner at the bottom
@@ -102,7 +111,7 @@ module bearing_holder(length = lm8uu_length)
                 translate([0, 0, barrel_offset])
                 rotate([90, 0, 0])
                 // need the tiny epsilon to avoid manifold errors in stl
-                cylinder(d=barrel_diam, h=length-0.01, center=true, $fn=28);
+                cylinder(d=diameter+barrel_thickness, h=length-0.01, center=true, $fn=28);
                 
                 // cut everything lower than the mountplate
                 translate([0, 0, -50])
@@ -112,6 +121,11 @@ module bearing_holder(length = lm8uu_length)
                 // make clearance for the heads of the mounting screws to be inserted
                 for(i=[-1, 1])
                     translate([mount_hole_spacing/2*i, -length/2+mount_length, 0])
+                    cylinder(d=mount_screwhead_clearance_diam, h=height*2+1, $fn=32, center=true);
+                
+                // make clearance for the second set of heads of the mounting screws to be inserted
+                for(i=[-1, 1])
+                    translate([mount_hole_spacing/2*i, -length/2+mount_length + mount_hole_2_distance, 0])
                     cylinder(d=mount_screwhead_clearance_diam, h=height*2+1, $fn=32, center=true);
             }
         }
@@ -123,7 +137,7 @@ module bearing_holder(length = lm8uu_length)
         // hollow out barrel
         translate([0, 0, barrel_offset])
         rotate([90, 0, 0])
-        cylinder(d=lm8uu_diam, h=length+0.1, center=true, $fn=25);
+        cylinder(d=diameter, h=length+0.1, center=true, $fn=25);
         
         // retaining hole for squeezing lm8uu
         translate([0, 0, height])
