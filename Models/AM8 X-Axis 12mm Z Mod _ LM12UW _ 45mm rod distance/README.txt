@@ -1,0 +1,1 @@
+AM8 X-Axis 12mm Z Mod / LM12UW / 45mm rod distance by mmpp00 on Thingiverse: https://www.thingiverse.com/thing:3422569
